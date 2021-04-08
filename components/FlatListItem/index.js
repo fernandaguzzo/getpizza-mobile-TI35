@@ -1,10 +1,17 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import styles from './styles';
 
 const FlatListItem = ({ item }) => {
     return (
         <View>
-            <Text>{item.name}</Text>
+            <Text style={styles.title}>{item.name}</Text>
+            <View style={styles.content}>
+            <Text style={styles.price}>{item.price}</Text>
+            <Text style={styles.description}>{item.description}</Text>
+            </View>
+            
+
         </View>
     )
 
