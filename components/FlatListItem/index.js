@@ -9,6 +9,7 @@ const FlatListItem = ({ item }) => {
             <View style={styles.content}>
             <Text style={styles.price}>{item.price}</Text>
             <Text style={styles.description}>{item.description}</Text>
+            <Text>{item.image}</Text>
             </View>
             
 
