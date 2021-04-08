@@ -1,12 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { Header } from 'react-native-elements';
+import api from './services';
+import FlatListItem from './components/FlatListItem';
 
-export default function App() {
-  return (
+
+const App = () => {
+
+  const [products, setProducts] = useState([]);
+
+  const loadingProducts = async () => {
+     const response = await api.get('products');
+     setProducts(response);
+  }
+  
+  useEffect(()=>{
+   loadingProducts();
+   console.log(products)
+  },[]);
+
+  return ( 
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Header />
+      <FlatList
+      data={products.data}
+      renderItem={({item}) => <FlatListItem item={item} /> }
+      keyExtractor={item => String(item.id)}
+       />
+      
     </View>
   );
 }
@@ -19,3 +40,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
