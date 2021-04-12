@@ -1,21 +1,35 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-    title:{
-        fontSize: 15,
-        marginTop: 10,
-        marginBottom: 10
-        
+    titleAndPrice:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    image: {
+        width: 80,
+        height: 80
+    },
+    card:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 25,
+        marginBottom: 5,
+        borderRadius: 10,
+        elevation: 5,
+        backgroundColor:'#fff',
+        overflow: 'hidden'
+    },
+    title: {
+        fontSize: 20,
+        color: "#e22424",
+        fontWeight: "bold",
     },
     price: {
-        color: "#A8D480",
-        
-
+        fontSize: 15,
+        color: "#e22424",
+        fontWeight: "bold",
     },
-    description: {
-        fontSize: 10,
-        marginTop: 10
-    }
 
 });
 
